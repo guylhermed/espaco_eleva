@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_espacoeleva_app/helpers/utils.dart';
+import 'package:flutter_espacoeleva_app/view/register.dart';
 
 import 'login.dart';
 
@@ -14,7 +16,7 @@ class Home extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/flower_background_2.jpg'),
+                image: AssetImage('assets/flower_background.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -22,28 +24,28 @@ class Home extends StatelessWidget {
           Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 150.0, left: 35.0),
+                padding: EdgeInsets.only(top: 190.0, left: 35.0),
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     'O lugar que\ncuida de\nvocê!',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: branco,
                       fontSize: 50,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w600,
                       height: 1.3,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),
-              const Spacer(),
+              const SizedBox(height: 180),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Align(
                   alignment: Alignment.center,
                   child: SizedBox(
-                    width: 325,
+                    width: 350,
                     height: 50,
                     child: TextButton(
                       onPressed: () {
@@ -57,7 +59,7 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        'Sign in',
+                        'Entrar',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -67,15 +69,20 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 200),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 200),
                 child: Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    'Criar sua conta',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Register()));
+                    },
+                    child: const Text(
+                      'Criar sua conta',
+                      style: TextStyle(
+                        color: rosaSecundario,
+                        fontSize: 15,
+                      ),
                     ),
                   ),
                 ),
