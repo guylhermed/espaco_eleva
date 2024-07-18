@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Necessário para buscar dados da internet. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- ... -->
     <application
         android:label="flutter_espacoeleva_app"
         android:name="${applicationName}"
@@ -22,6 +25,17 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
+
+                <!-- SUPABASE -->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Aceita URIs que comecem com YOUR_SCHEME://YOUR_HOST -->
+                <data
+                    android:scheme="io.supabase.flutterquickstart"
+                    android:host="login-callback" />
+                <!-- SUPABASE -->
+
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
